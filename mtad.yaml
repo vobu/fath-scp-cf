@@ -1,0 +1,15 @@
+_schema-version: 3.2.0
+ID: fath-cf
+description: folding-at-home on scp cf
+version: 0.0.6
+modules:
+- name: fath-cf
+  type: javascript.nodejs
+  parameters:
+    disk-quota: 4G
+    memory: 3G
+    docker:
+      image: johnktims/folding-at-home
+    command: FAHClient --allow=0/0:7396 --user=vobu --team=4711 --cause=ANY --cpus=0 --gpu=false --smp=true --power=full --web-enable=false
+    health-check-type: process
+    timeout: 180
